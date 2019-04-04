@@ -6,9 +6,9 @@
 #    * else, prompt for DRP Endpoint
 ###
 [[ -z "$RS_ENDPOINT" ]] && read -p "Enter DRP Endpoint: " RS
-DRPJOIN="-e DRP=$RS_ENDPOINT"
+#DRPJOIN="-e DRP=$RS_ENDPOINT"
 EXTRA_ARGS="$*"
 
 set -x
-docker run $DRPJOIN $EXTRA_ARGS --rm sygibson/drpjoin 
+docker run $DRPJOIN $EXTRA_ARGS -it --rm sygibson/drpjoin /usr/bin/drpjoin $RS_ENDPOINT
 
